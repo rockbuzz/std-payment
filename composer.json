@@ -1,0 +1,26 @@
+{
+    "name": "rockbuzz/std-payment",
+    "description": "Standard Payment",
+    "authors": [
+        {
+            "name": "Tiago Lopes",
+            "email": "tiago.dweb@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Rockbuzz\\StdPayment\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=7.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.5"
+    }
+}
