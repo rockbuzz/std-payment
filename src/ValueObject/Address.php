@@ -2,6 +2,8 @@
 
 namespace Rockbuzz\StdPayment\ValueObject;
 
+use \InvalidArgumentException;
+
 class Address
 {
     const DEFAULT_COUNTRY = 'BR';
@@ -66,72 +68,54 @@ class Address
         $this->country = $country;
     }
 
-    /**
-     * @return string
-     */
     public function getStreet(): string
     {
         return $this->street;
     }
 
-    /**
-     * @return string
-     */
     public function getNumber(): string
     {
         return $this->number;
     }
 
-    /**
-     * @return string|null
-     */
     public function getComplement(): ?string
     {
         return $this->complement;
     }
 
-    /**
-     * @return string
-     */
     public function getPostalCode(): string
     {
         return $this->postalCode;
     }
 
-    /**
-     * @return string
-     */
     public function getNeighborhood(): string
     {
         return $this->neighborhood;
     }
 
-    /**
-     * @return string
-     */
     public function getCity(): string
     {
         return $this->city;
     }
 
     /**
-     * @return string
+     * @throws InvalidArgumentException
      */
     public function getState(): string
     {
         if (strlen($this->state) != 2) {
-            throw new \InvalidArgumentException('state must be two characters');
+            throw new InvalidArgumentException('state must be two characters');
         }
         return strtoupper($this->state);
     }
 
     /**
-     * @return string
+     * @throws InvalidArgumentException
      */
     public function getCountry(): string
     {
         if (strlen($this->country) != 2) {
-            throw new \InvalidArgumentException('country must be two characters');
+            throw new InvalidArgumentException('country must be two characters');
         }
         return strtoupper($this->country);
     }

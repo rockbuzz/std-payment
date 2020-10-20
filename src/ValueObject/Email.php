@@ -13,14 +13,17 @@ class Email
 
     public function __construct(string $value)
     {
-        if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
-            throw new InvalidArgumentException('email must have a valid format');
-        }
         $this->value = $value;
     }
     
+    /**
+     * @throws InvalidArgumentException
+     */
     public function getValue(): string
     {
+        if (!filter_var($this->value, FILTER_VALIDATE_EMAIL)) {
+            throw new InvalidArgumentException('email must have a valid format');
+        }
         return $this->value;
     }
 }

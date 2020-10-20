@@ -30,7 +30,7 @@ class Item
     private $options;
 
     public function __construct(
-        string $id,
+        $id,
         string $name,
         int $priceInCents,
         int $quantity = 1,
@@ -44,9 +44,9 @@ class Item
     }
 
     /**
-     * @return string
+     * @return string|int
      */
-    public function getId(): string
+    public function getId()
     {
         return $this->id;
     }

@@ -32,7 +32,7 @@ class Customer
     private $address;
 
     public function __construct(
-        int $id,
+        $id,
         string $name,
         string $document,
         Email $email,
@@ -45,17 +45,10 @@ class Customer
         $this->address = $address;
     }
 
-    public function hasAddress(): bool
-    {
-        return !!$this->address;
-    }
-
-    public function setAddress(Address $address): void
-    {
-        $this->address = $address;
-    }
-
-    public function getId(): int
+    /**
+     * @return string|int
+     */
+    public function getId()
     {
         return $this->id;
     }
@@ -78,9 +71,6 @@ class Customer
         return $this->email->getValue();
     }
 
-    /**
-     * @return string|null
-     */
     public function getAddressStreet(): ?string
     {
         return $this->address->getStreet() ?? null;
@@ -119,5 +109,15 @@ class Customer
     public function getAddressCountry(): ?string
     {
         return $this->address->getCountry() ?? null;
+    }
+
+    public function setAddress(Address $address): void
+    {
+        $this->address = $address;
+    }
+
+    public function hasAddress(): bool
+    {
+        return !!$this->address;
     }
 }
