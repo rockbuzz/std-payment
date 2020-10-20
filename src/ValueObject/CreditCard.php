@@ -10,12 +10,12 @@ class CreditCard
     private $holderName;
 
     /**
-     * @var int
+     * @var string|int
      */
     private $number;
 
     /**
-     * @var int
+     * @var string|int
      */
     private $code;
 
@@ -48,22 +48,28 @@ class CreditCard
         return $this->holderName;
     }
 
+    /**
+     * @return string|int
+     */
     public function getNumber()
     {
         return $this->number;
     }
 
+    /**
+     * @return string|int
+     */
     public function getCode()
     {
         return $this->code;
     }
 
-    public function getMonth()
+    public function getMonth(): int
     {
         return $this->month;
     }
 
-    public function getYear()
+    public function getYear(): int
     {
         return $this->year;
     }

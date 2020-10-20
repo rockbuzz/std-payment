@@ -8,9 +8,9 @@ use Rockbuzz\StdPayment\StdPaymentException;
 interface Transactions
 {
     /**
-     * @param mixed $transactionCode
+     * @param mixed $code
      * @return Result
      * @throws StdPaymentException
      */
-    public function findByCode($transactionCode): Result;
+    public function findByCode($code): Result;
 }

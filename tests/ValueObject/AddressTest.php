@@ -7,7 +7,7 @@ use Rockbuzz\StdPayment\ValueObject\Address;
 
 class AddressTest extends TestCase
 {
-    public function testAnAddressMustHaveATwoCharacterState()
+    public function test_an_address_must_have_a_two_character_state()
     {
         $address = new Address('street', 123, '12345678', 'neigh', 'city', 'STR');
 
@@ -16,14 +16,14 @@ class AddressTest extends TestCase
         $address->getState();
     }
 
-    public function testAnAddressMustHaveAStateWithCapitalLetters()
+    public function test_an_address_must_have_a_StateWithCapitalLetters()
     {
         $address = new Address('street', 123, '12345678', 'neigh', 'city', 'st');
 
         $this->assertEquals('ST', $address->getState());
     }
 
-    public function testAnAddressMustHaveATwoCharacterCountry()
+    public function test_an_address_must_have_a_TwoCharacterCountry()
     {
         $address = new Address('street', 123, '12345678', 'neigh', 'city','ST', null, 'CTR');
 
@@ -33,7 +33,7 @@ class AddressTest extends TestCase
         $address->getCountry();
     }
 
-    public function testAnAddressMustHaveACountryWithCapitalLetters()
+    public function test_an_address_must_have_a_CountryWithCapitalLetters()
     {
         $address = new Address('street', 123, '12345678', 'neigh', 'city', 'st', null, 'ct');
 

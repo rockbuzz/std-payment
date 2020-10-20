@@ -7,22 +7,16 @@ use Rockbuzz\StdPayment\ValueObject\Email;
 
 class EmailTest extends TestCase
 {
-    /**
-     * @test
-     */
-    public function anEmailMustHaveAValidFormat()
+    public function test_an_email_must_have_a_valid_format()
     {
         
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage('email must have a valid format');
         
-        $email = new Email('no-email');
+        new Email('no-email');
     }
 
-    /**
-     * @test
-     */
-    public function emailValid()
+    public function test_email_valid()
     {
         $email = new Email('email@domain.com');
 

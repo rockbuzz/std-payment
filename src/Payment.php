@@ -8,6 +8,8 @@ use Rockbuzz\SDKYapay\Exception\StdPaymentException;
 interface Payment
 {
     /**
+     * You must generate the transaction on a payment service.
+     *
      * @return Result
      * @throws StdPaymentException
      */

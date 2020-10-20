@@ -24,16 +24,23 @@ class Item
      */
     private $quantity;
 
+    /**
+     * @var array
+     */
+    private $options;
+
     public function __construct(
         string $id,
         string $name,
         int $priceInCents,
-        int $quantity = 1
+        int $quantity = 1,
+        array $options = []
     ) {
         $this->id = $id;
         $this->name = $name;
         $this->priceInCents = $priceInCents;
         $this->quantity = $quantity;
+        $this->options = $options;
     }
 
     /**
@@ -66,5 +73,21 @@ class Item
     public function getQuantity(): int
     {
         return $this->quantity;
+    }
+
+    /**
+     * @return array
+     */
+    public function getOptions(): array
+    {
+        return $this->options;
+    }
+
+    /**
+     * @return int
+     */
+    public function total(): int
+    {
+        return $this->priceInCents * $this->quantity;
     }
 }

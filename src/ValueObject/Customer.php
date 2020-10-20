@@ -45,41 +45,26 @@ class Customer
         $this->address = $address;
     }
 
-    /**
-     * @return bool
-     */
     public function hasAddress(): bool
     {
         return !!$this->address;
     }
 
-    /**
-     * @param Address $address
-     */
     public function setAddress(Address $address): void
     {
         $this->address = $address;
     }
 
-    /**
-     * @return int
-     */
     public function getId(): int
     {
         return $this->id;
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @return string
-     */
     public function getDocument(): string
     {
         return $this->document;
@@ -101,57 +86,36 @@ class Customer
         return $this->address->getStreet() ?? null;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAddressNumber(): ?string
     {
         return $this->address->getNumber() ?? null;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAddressComplement(): ?string
     {
         return $this->address->getComplement() ?? null;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAddressPostalCode(): ?string
     {
         return $this->address->getPostalCode() ?? null;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAddressNeighborhood(): ?string
     {
         return $this->address->getNeighborhood() ?? null;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAddressCity(): ?string
     {
         return $this->address->getCity() ?? null;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAddressState(): ?string
     {
         return $this->address->getState() ?? null;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAddressCountry(): ?string
     {
         return $this->address->getCountry() ?? null;
