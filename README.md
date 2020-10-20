@@ -1,6 +1,8 @@
 # Standard Payment
 
-Standard Payment
+This package aims to abstract communication with payment services.
+
+[![Build Status](https://travis-ci.org/rockbuzz/std-payment.svg?branch=master)](https://travis-ci.org/rockbuzz/std-payment)
 
 ## Requirements
 
@@ -146,6 +148,18 @@ $item->getName(): string
 $item->getPriceInCents(): int
 $item->getQuantity(): int
 $item->total(): int
+```
+
+### Style Code
+
+``` bash
+$ composer cs
+```
+
+### Testing
+
+``` bash
+$ composer test
 ```
 
 ## Contributing
