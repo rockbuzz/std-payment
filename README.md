@@ -162,7 +162,7 @@ $item->getQuantity(): int
  * @param mixed $value
  * @return self
  */
-public function addOption(string $key, $value): self
+$item->addOption(string $key, $value): self
 $item->totalInCents(): int
 ```
 
