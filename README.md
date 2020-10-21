@@ -17,19 +17,28 @@ $ composer require rockbuzz/std-payment
 ## Usage
 
 ```php
-use Rockbuzz\StdPayment\Result;
-use Rockbuzz\StdPayment\Payment;
-use Rockbuzz\StdPayment\StdPaymentException;
+use Rockbuzz\StdPayment\{Payment, Result, StdPaymentException, Transactions};
 
 class YourPayment implement Payment
 {
     /**
      * You must generate the transaction on a payment service.
      *
-     * @return Result
      * @throws StdPaymentException
      */
     public function done(): Result
+    {
+        //
+    }
+}
+
+class YourTransactions implement Transactions
+{
+    /**
+     * @param string|int $code
+     * @throws StdPaymentException
+     */
+    public function findByCode($code): Result;
     {
         //
     }
@@ -41,7 +50,6 @@ class YourResult implement Result
      * It must contain the data structure returned by the payment
      * service in a transaction.
      *
-     * @return JsonSerializable
      */
     public function about(): JsonSerializable
     {
@@ -147,7 +155,15 @@ $item->getId()
 $item->getName(): string
 $item->getPriceInCents(): int
 $item->getQuantity(): int
-$item->total(): int
+/**
+ * If the key exists it will be overwritten
+ *
+ * @param string $key
+ * @param mixed $value
+ * @return self
+ */
+public function addOption(string $key, $value): self
+$item->totalInCents(): int
 ```
 
 ### Style Code

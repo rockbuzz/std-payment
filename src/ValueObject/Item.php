@@ -43,50 +43,46 @@ class Item
         $this->options = $options;
     }
 
-    /**
-     * @return string|int
-     */
     public function getId()
     {
         return $this->id;
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @return int
-     */
     public function getPriceInCents(): int
     {
         return $this->priceInCents;
     }
 
-    /**
-     * @return int
-     */
     public function getQuantity(): int
     {
         return $this->quantity;
     }
 
-    /**
-     * @return array
-     */
     public function getOptions(): array
     {
         return $this->options;
     }
 
     /**
-     * @return int
+     * If the key exists it will be overwritten
+     *
+     * @param string $key
+     * @param mixed $value
+     * @return self
      */
-    public function total(): int
+    public function addOption(string $key, $value): self
+    {
+        $this->options[$key] = $value;
+
+        return $this;
+    }
+
+    public function totalInCents(): int
     {
         return $this->priceInCents * $this->quantity;
     }

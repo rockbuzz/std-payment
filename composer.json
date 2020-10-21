@@ -1,6 +1,6 @@
 {
     "name": "rockbuzz/std-payment",
-    "description": "Standard Payment",
+    "description": "This package aims to abstract communication with payment services.",
     "authors": [
         {
             "name": "Tiago Lopes",

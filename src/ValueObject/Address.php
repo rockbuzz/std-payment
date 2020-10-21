@@ -19,7 +19,7 @@ class Address
     private $number;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $complement;
 
@@ -51,11 +51,11 @@ class Address
     public function __construct(
         string $street,
         string $number,
+        string $complement,
         string $postalCode,
         string $neighborhood,
         string $city,
         string $state,
-        string $complement = null,
         string $country = self::DEFAULT_COUNTRY
     ) {
         $this->street = $street;
