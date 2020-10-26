@@ -73,7 +73,8 @@ class YourResult implement Result
 use Rockbuzz\StdPayment\ValueObject\{
     Address,
     CreditCard,
-    Customer,
+    CPF,
+    CNPJ,
     Email,
     Item
 };
@@ -109,35 +110,23 @@ $creditCard->getCode()
 $creditCard->getMonth(): int
 $creditCard->getYear(): int
 ```
-#### Customer
+#### CPF
 ```php
 /**
- * @return string|int
+ * @return mixed
  */
-$customer->getId()
-$customer->getName(): string
-$customer->getDocument(): string
- /**
- * @throws InvalidArgumentException
- */
-$customer->getEmail(): string
-$customer->getAddressStreet(): ?string
-$customer->getAddressNumber(): ?string
-$customer->getAddressComplement(): ?string
-$customer->getAddressPostalCode(): ?string
-$customer->getAddressNeighborhood(): ?string
-$customer->getAddressCity(): ?string
+$cpf->getType();    
+$cpf->getValue(): string;
+(string)$cpf
+```
+#### CNPJ
+```php
 /**
- * @throws InvalidArgumentException
+ * @return mixed
  */
-$customer->getAddressState(): ?string
-/**
- * @throws InvalidArgumentException
- */
-$customer->getAddressCountry(): ?string
-$customer->setAddress(Address $address): void
-$customer->hasAddress(): bool
-
+$cnpj->getType();    
+$cnpj->getValue(): string;
+(string)$cnpj
 ```
 #### Email
 ```php
