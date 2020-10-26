@@ -9,12 +9,10 @@ class EmailTest extends TestCase
 {
     public function test_an_email_must_have_a_valid_format()
     {
-        $email = new Email('no-email');
-        
         $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('email must have a valid format');
+        $this->expectExceptionMessage('Email must have a valid format');
      
-        $email->getValue();
+        new Email('no-email');
     }
 
     public function test_email_valid()
