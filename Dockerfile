@@ -1,17 +1,9 @@
-FROM phpdockerio/php71-fpm:latest
+FROM php:7.4-fpm-alpine
 
-LABEL maintainer="TiagoDevWeb"
+RUN apk add --no-cache $PHPIZE_DEPS bash
 
-ARG DEBIAN_FRONTEND=noninteractive
-
-RUN apt-get update \
-    && apt-get -y --no-install-recommends install php-xdebug \
-    && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
-
-RUN cd '/' \
- && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
- && php composer-setup.php \
- && php -r "unlink('composer-setup.php');" \
- && mv composer.phar /usr/local/bin/composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www
+
+ENTRYPOINT ["php-fpm"]
